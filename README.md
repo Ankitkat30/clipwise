@@ -67,21 +67,14 @@ This is a mobile quiz application built using Flutter that dynamically generates
    ```
 2. **Navigate to the project directory:**
    ```sh
-   cd quiz-app
+   cd qroq
    ```
 3. **Install dependencies:**
    ```sh
    flutter pub get
    ```
 4. **Configure API Key:**
-   - Create a new file in the `lib/core/` directory named `api_keys.dart`.
-   - Add the following content:
-     ```dart
-     class ApiKeys {
-       static const String groqApiKey = "your_api_key_here";
-     }
-     ```
-   - Replace `your_api_key_here` with your actual GROQ API key.
+   - go to qroq.com and create your api key and replace in api.dart screen
 
 5. **Run the app:**
    ```sh
@@ -181,5 +174,4 @@ This project is licensed under the MIT License.
 ## ✨ Contributions
 Feel free to fork this repository, create issues, and submit pull requests. Feedback and contributions are welcome!
 
-🔗 **GitHub Repository:** [GitHub Link](https://github.com/yourusername/quiz-app)
 
