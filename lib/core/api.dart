@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 // API Class
@@ -8,11 +9,10 @@ class Api {
   final Dio _dio = Dio();
 
   static const baseUrl = "https://api.groq.com/openai";
-  static const accessToken = "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";
 
   final Map<String, dynamic> headers = {
     "Content-type": "application/json",
-    "Authorization": "Bearer $accessToken"
+    "Authorization": "Bearer ${dotenv.env['GROQ_API_KEY'] ?? ''}"
   };
 
   Api() {
@@ -42,7 +42,7 @@ class ApiResponse {
     try {
       // Extract the "content" field inside "choices"
       final String content = response.data["choices"][0]["message"]["content"];
-      
+
       // Parse JSON string into a Dart object
       final Map<String, dynamic> jsonData = json.decode(content);
 
@@ -56,4 +56,3 @@ class ApiResponse {
     }
   }
 }
-
